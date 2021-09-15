@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "create-react-app": "^4.0.3",
+    "express": "^4.17.1",
+    "react-bucket": "^0.0.11"
+  }
+}

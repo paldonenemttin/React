@@ -1,0 +1,9 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: aquamarine;
+  min-height: 30vh;
+  color: pink;
+}
