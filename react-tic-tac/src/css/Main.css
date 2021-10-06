@@ -1,0 +1,7 @@
+div.line {
+  display: flex;
+}
+button.btn_game {
+  height: 40px;
+  width: 40px;
+}
