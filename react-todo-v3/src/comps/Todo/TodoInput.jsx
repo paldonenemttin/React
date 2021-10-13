@@ -1,5 +1,5 @@
-import { useTodoContext } from "../context/AppContextProvider";
-import "../css/TodoInput.css";
+import { useTodoContext } from "../../context/AppContextProvider";
+import "../../css/TodoInput.css";
 
 function TodoInput() {
   const { todo, onChange, onKeyPress, onClick, alert } = useTodoContext();

@@ -1,5 +1,5 @@
-import AppContextProvider from "../context/AppContextProvider";
-import "../css/TodoMain.css";
+import "../../css/TodoMain.css";
+import { AppContextProvider } from "../../context";
 
 function TodoMain({ header, form, children }) {
   return (

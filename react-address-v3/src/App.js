@@ -7,28 +7,28 @@ import UUID from "react-uuid";
 
 function App() {
   // 주소 한개의 데이터를 저장할 state 선언하기
-  const [address, setAddress] = useState({
-    a_id: UUID(),
-    a_name: "홍길동",
-    a_tel: "010-111-1111",
-    a_addr: "서울시",
-    a_age: 30,
+  const [account, setAccount] = useState({
+    acc_id: UUID(),
+    acc_name: "",
+    acc_tel: "",
+    acc_addr: "",
+    acc_age: "",
   });
-  const [addrBook, setAddrBook] = useState([]);
+  const [accountBook, setAccountBook] = useState([]);
   const stateGroup = {
-    address,
-    setAddress,
-    addrBook,
-    setAddrBook,
+    account,
+    setAccount,
+    accountBook,
+    setAccountBook,
   };
 
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <h1>나만의 가계부</h1>
       </header>
       <AddressInput stateGroup={stateGroup} />
-      <AddressList addrBook={addrBook} />
+      <AddressList accountBook={accountBook} />
     </div>
   );
 }

@@ -1,11 +1,16 @@
-import React, { useState } from "react";
-import "../css/LoginForm.css"
+import "../css/LoginForm.css";
+import { useState } from "react";
+import { useUserContext } from "../context/UserContextProvider";
+import { useHistory } from "react-router-dom";
 
 function LoginForm() {
+  const { setUser } = useUserContext();
   const [account, setAccount] = useState({
     userid: "",
     password: "",
   });
+
+  const history = useHistory();
 
   const onChage = (e) => {
     setAccount({ ...account, [e.target.name]: e.target.value });
@@ -16,7 +21,9 @@ function LoginForm() {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "http://localhost:3000",
       },
+      credentials: "include",
       body: JSON.stringify({
         userid: account.userid,
         password: account.password,
@@ -30,30 +37,37 @@ function LoginForm() {
     // ES6+ 버전에서 safe null 검사를 수행하는 코드가 있다
     // res가 정상(null, undefined 가 아니면 .ok 속성을 검사하라)
     // null 로 인한 오류를 방지하는 코드다
+    console.log("res", res);
+    if (res.status === 401) {
+      alert("아이디 또는 비번 확인하세요");
+    }
     if (res?.ok) {
-      const user = await res.json();
+      const resultUser = await res.json();
+
       console.log("userid", account.userid);
 
       //const user = users.find((item) => {
       //  return item.userid === account.userid;
       //});
 
-      console.log("user", user);
+      console.log("user", resultUser);
 
-      if (!user) {
-        alert("아이디가 없음");
+      if (!resultUser?.userid) {
+        alert("없는 ID 입니다");
         return;
       }
-      if (user.password !== account.password) {
+      if (resultUser.password !== account.password) {
         alert("비번 오류");
         return;
       }
       alert("로그인 성공");
+      setUser(resultUser);
+      history.replace("/");
     }
   };
 
   return (
-    <div className="form_login">
+    <div className="login_form">
       <input
         name="userid"
         placeholder="아이디를 입력하세요"
@@ -70,4 +84,4 @@ function LoginForm() {
   );
 }
 
-export default LoginForm
+export default LoginForm;

@@ -1,0 +1,36 @@
+div.input_item {
+  border: 1px solid #aaa;
+  height: 40vh;
+  width: 80vw;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+div.input_item input {
+  width: 60vw;
+  height: 5vh;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+div.input_item button {
+  height: 8vh;
+  width: 50vh;
+  background-color: turquoise;
+  color: white;
+  padding: 2px;
+  border-radius: 3px;
+  border-style: none;
+  margin-top: 10px;
+}
+
+div.input_item button:hover {
+  cursor: pointer;
+  box-shadow: 2px 2px #aaa;
+}
+
+div.input_item input:hover {
+  background-color: #eee;
+}

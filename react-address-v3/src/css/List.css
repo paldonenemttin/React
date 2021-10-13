@@ -1,0 +1,26 @@
+table.item_list {
+  border-spacing: 0;
+  justify-content: center;
+  margin: auto;
+  margin-top: 10px;
+  width: 90%;
+  margin-bottom: 50px;
+  table-layout: fixed;
+}
+table.item_list th,
+td {
+  padding: 5px 5px;
+  border: 1px solid black;
+}
+
+table.item_list th:nth-child(1),
+th:nth-child(1) {
+  width: 30px;
+}
+
+table.item_list td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-top: none;
+}
